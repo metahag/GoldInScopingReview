@@ -1,0 +1,98 @@
+## Setup
+
+```{r, setup, echo=TRUE}
+
+###-----------------------------------------------------------------------------
+### Some booleans (logical values, set to TRUE or FALSE) to control which
+### actions are executed when the script runs
+###-----------------------------------------------------------------------------
+
+runScreeningChunks <- FALSE;
+
+###-----------------------------------------------------------------------------
+### Packages
+###-----------------------------------------------------------------------------
+
+if ((!(requireNamespace("metabefor", quietly = TRUE))) ||
+      (packageVersion("metabefor") < "0.3")) {
+  stop("You need to have at least version 0.3 of the `metabefor` package installed; ",
+       "install it with:\n\ninstall.packages('metabefor');");
+}
+
+metabefor::checkPkgs(
+  "here",               ### For easily access to files using 'relative paths'
+  "preregr",            ### For specifying (pre)registrations
+  "synthesisr",         ### For plotting
+  "ggplot2"             ### For plotting
+);
+
+### Potentially update to the development version of some packages
+# ufs::quietGitLabUpdate("r-packages/preregr@dev", quiet = FALSE);
+# ufs::quietGitLabUpdate("r-packages/rock@dev", quiet = FALSE);
+# ufs::quietGitLabUpdate("r-packages/metabefor", quiet = FALSE);
+# ufs::quietRemotesInstall("rmetaverse/synthesisr",
+#                          func = "install_github", quiet = FALSE);
+
+###-----------------------------------------------------------------------------
+### Paths
+###-----------------------------------------------------------------------------
+
+basePath <- here::here();
+scriptPath <- file.path(basePath, "scripts");
+extractionPath <- file.path(basePath, "extraction");
+
+
+
+###-----------------------------------------------------------------------------
+### Settings
+###-----------------------------------------------------------------------------
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  comment = ""
+);
+
+###-----------------------------------------------------------------------------
+### Extraction script Google sheets URL
+###-----------------------------------------------------------------------------
+
+rxsSpec_googleSheetsURL <-
+  paste0("https://docs.google.com/spreadsheets/d/",
+         "1plmKHwTkUQTDAu5pFWDPby1RLUmg-x4wNryYCJdbilg");
+
+```
+
+```{r read-extraction-script-specification, include=FALSE}
+
+###-----------------------------------------------------------------------------
+### Import rxs specifications
+###-----------------------------------------------------------------------------
+
+rxsSpecObject <-
+  metabefor::rxs_fromSpecifications(
+    rxsSpec_googleSheetsURL,
+    outputFile = file.path(
+      extractionPath,
+      "extractionScriptTemplate.rxs.Rmd"
+    )
+  );
+
+```
+
+
+# Analysis
+```{r create-df-from-studies, include=FALSE}
+
+studies <-
+  metabefor::rxs_parseExtractionScripts(
+    path = extractionPath,
+    parallel = TRUE
+  );
+
+
+
+
+
+
+```
+

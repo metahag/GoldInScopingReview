@@ -1,0 +1,742 @@
+```{r rxs-setup-chunk-RxfuCp, echo=FALSE, results='hide'}
+```
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--                                                                       -->
+<!-- Welcome to the R Extraction Script (.rxs.Rmd file) for this source!   -->
+<!--                                                                       -->
+<!-- You can now start extracting. If you haven't yet studied the          -->
+<!-- extractor instructions, please do so first. If you're all set, good   -->
+<!-- luck!                                                                 -->
+<!--                                                                       -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+```{r rxs-extraction-chunk, echo=FALSE}
+##############################################################################
+############################################ START: uniqueSourceIdentifier ###
+##############################################################################
+uniqueSourceIdentifier <- 
+##############################################################################
+### 
+### SET UNIQUE SOURCE IDENTIFIER
+### 
+### A unique identifier used in this systematic review to refer to this
+### source
+### 
+##############################################################################
+    
+    "qurid_7q1jsclj"
+    
+##############################################################################
+########################################### VALUE DESCRIPTION AND EXAMPLES ###
+##############################################################################
+### 
+### A unique identifier to use in this systematic review. For sources
+### with a DOI, this is the last part of the shortDOI as looked up
+### through https://shortdoi.org (the part after the "10/"). For sources
+### without a DOI (and so, without a shortDOI), this can be, for example,
+### the QURID (Quasi-Unique Record Identifier) that was designated during
+### the screening phase or which you can create with
+### `metabefor::qurid()`.
+### 
+### EXAMPLES:
+### 
+### "g5fj"
+### "qurid_7h4pksl6"
+### 
+##############################################################################
+############################################## END: uniqueSourceIdentifier ###
+##############################################################################
+
+##############################################################################
+############################################### START: extractorIdentifier ###
+##############################################################################
+extractorIdentifier <- 
+##############################################################################
+### 
+### SPECIFY YOUR EXTRACTOR IDENTIFIER
+### 
+### An identifier unique to every extractor
+### 
+##############################################################################
+    
+    "Lucija"
+    
+##############################################################################
+########################################### VALUE DESCRIPTION AND EXAMPLES ###
+##############################################################################
+### 
+### Identifiers can only consist of (lower or uppercase) Latin letters
+### [a-zA-Z], Arabic numerals [0-9], and underscores [_], and always have
+### to start with a letter.
+### 
+### EXAMPLES:
+### 
+### "extractor_1"
+### "Alex"
+### 
+##############################################################################
+################################################# END: extractorIdentifier ###
+##############################################################################
+
+
+##############################################################################
+##################################################### START: source (ROOT) ###
+##############################################################################
+rxsObject <- data.tree::Node$new('source');
+currentEntity <- rxsObject;
+##############################################################################
+
+  ############################################################################
+  ######################################################## START: metadata ###
+  ############################################################################
+  currentEntity <- currentEntity$AddChild('metadata');
+  ############################################################################
+  ### 
+  ### METADATA
+  ### 
+  ### this is the parent variable for all items relating to the
+  ### metadata of the tool
+  ### 
+  ############################################################################
+      
+  
+    ##########################################################################
+    ##################################################### START: toolTitle ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('toolTitle');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### TOOL TITLE
+    ### 
+    ### If the tool has a title, write it here. If there is no title,
+    ### check if the tool can be identified with a project or
+    ### collaborative group name or write an APA style in-text
+    ### citation to identify a tool that was published with a
+    ### research paper (e.g., Downs & Black (1998)).
+    ### 
+    ##########################################################################
+        
+        "PROBAST: A tool to assess the risk of bias and applicability
+of prediction model studies"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ####################################################### END: toolTitle ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ################################################## START: toolCitation ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('toolCitation');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### TOOL CITATION
+    ### 
+    ### Some tools may not be published as part of a paper. For
+    ### instance, they might be attached to websites as separate
+    ### documents. Therefore, a citation may not be enough to find
+    ### the paper. Always include a link that will point to the tool.
+    ### In the case of paper publications, use the DOI.
+    ### 
+    ##########################################################################
+        
+        "Moons, K. G. M., Wolff, R. F., Riley, R. D., Whiting, P. F., Westwood, M., Collins, G. S., Reitsma, J. B., Kleijnen, J., & Mallett, S. (2019). PROBAST: A Tool to Assess Risk of Bias and Applicability of Prediction Model Studies: Explanation and Elaboration. Annals of internal medicine, 170(1), W1–W33. https://doi-org./10.7326/M18-1377"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    #################################################### END: toolCitation ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ############################################## START: toolCitationLink ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('toolCitationLink');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### TOOL CITATION LINK
+    ### 
+    ### link of the tool in case there's no citation
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ################################################ END: toolCitationLink ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ################################################## START: accessIssues ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('accessIssues');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### ACCESS ISSUES
+    ### 
+    ### If there are any access issues, report them here as a
+    ### comment. Otherwise, leave blank.
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    #################################################### END: accessIssues ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    #################################################### START: accessType ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('accessType');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### ACCESS TYPE
+    ### 
+    ### Select whether access is open or requires paying/subscribing
+    ### 
+    ##########################################################################
+        
+        "open access"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A string that has to exactly match one of the values
+    ### specified in the "values" column of the Coding sheet
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### c("open access", "subscription")
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (VALUE %in% c("open access", "subscription")));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ###################################################### END: accessType ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ############################################## START: copyrightLicence ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('copyrightLicence');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### COPYRIGHT LICENCE
+    ### 
+    ### Select under which licence it's published; choose one of the
+    ### examples
+    ### 
+    ##########################################################################
+        
+        "Other - Copyright © 2019 by American College of Physicians. All Rights Reserved."
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### CC; BYCC; BY-NCGNU (the general public licence); Other Specify; Unclear - no licence information can be found
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ################################################ END: copyrightLicence ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    #################################################### START: typeOfTool ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('typeOfTool');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### TYPE OF TOOL
+    ### 
+    ### Does the tool identify itself with any of the following
+    ### terms?
+    ### 
+    ##########################################################################
+        
+        "Risk of Bias"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### Select all that apply: Risk of Bias; Quality Assessment; Critical Appraisal; None; Other (specify)
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ###################################################### END: typeOfTool ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ######################################################## START: format ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('format');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### FORMAT
+    ### 
+    ### Specify the format of the tool, choose from examples and
+    ### copy-paste them vebatim
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### Select as many as applies:  A text document file with a list of items;  A text document form that can be filled out on the computer or printed and filled out on paper; A spreadsheet file that should be completed on the computer;  An online application or software (including a website); An offline application or software;  Other - specify the format;
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ########################################################## END: format ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ####################################################### START: support ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('support');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### SUPPORT
+    ### 
+    ### Is there any provision of support for authors who want to or
+    ### are in the process of using the tool? For example, it could
+    ### be a community mailing list, a Slack or Discord workspace, an
+    ### online chat function with an adviser embedded within a
+    ### website.Pick one answer from the examples.
+    ### 
+    ##########################################################################
+        
+        "Unclear - there is no clear indication whether there's any support"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### Yes - some form of support is available - Specify; No - no form of support is available; Unclear: Provide a comment
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ######################################################### END: support ###
+    ##########################################################################
+  
+      
+  ############################################################################
+  ############################################################################
+  currentEntity <- currentEntity$parent;
+  ############################################################################
+  ########################################################## END: metadata ###
+  ############################################################################
+
+
+  ############################################################################
+  ######################################################### START: content ###
+  ############################################################################
+  currentEntity <- currentEntity$AddChild('content');
+  ############################################################################
+  ### 
+  ### CONTENT
+  ### 
+  ### parent variable for all items relating to the content of the tool
+  ### 
+  ############################################################################
+      
+  
+    ##########################################################################
+    ################################################# START: numberOfItems ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('numberOfItems');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### NUMBER OF ITEMS
+    ### 
+    ### How many main items are in the tool? Some items might have
+    ### long descriptions with sub-items or general categories with
+    ### sub-items. Count all items and sub-items in the tool. If in
+    ### doubt, think about the separate items as they would be in the
+    ### item bank.
+    ### 
+    ##########################################################################
+        
+        57
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### Any valid whole number
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### 30
+    ### 8762
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.numeric(VALUE) && (VALUE%%1==0) && (length(VALUE) == 1)));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ################################################### END: numberOfItems ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ######################################## START: instructionsWithinTool ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('instructionsWithinTool');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### INSTRUCTIONS WITHIN THE TOOL
+    ### 
+    ### Explanation, description or further guides explaining what is
+    ### meant by individual items. Select one of the options
+    ### 
+    ##########################################################################
+        
+        "No Explanation"
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A string that has to exactly match one of the values
+    ### specified in the "values" column of the Coding sheet
+    ### 
+    ### EXAMPLE:
+    ### 
+    ### c("No Explanation", "One-Sentence Explanation", "Longer Explanation in the Same Document")
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (VALUE %in% c("No Explanation", "One-Sentence Explanation", "Longer Explanation in the Same Document")));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ########################################## END: instructionsWithinTool ###
+    ##########################################################################
+  
+      
+  ############################################################################
+  ############################################################################
+  currentEntity <- currentEntity$parent;
+  ############################################################################
+  ########################################################### END: content ###
+  ############################################################################
+
+    
+##############################################################################
+####################################################### END: source (ROOT) ###
+##############################################################################
+class(rxsObject) <- c('rxs', 'rxsObject', class(rxsObject));
+rxsObject$rxsMetadata <- list(rxsVersion='0.3.0', moduleId=NULL, id=uniqueSourceIdentifier, extractorId=extractorIdentifier);
+##############################################################################
+##############################################################################
+##############################################################################
+```
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--                                                                       -->
+<!-- Well done! You are now done extracting this source. Great job!!!      -->
+<!--                                                                       -->
+<!-- Now, please knit the R Extraction Script into an HTML file and        -->
+<!-- carefully check whether you entered everything correctly, since it    -->
+<!-- will cost much less time to correct any errors, now that you still    -->
+<!-- have this source in your mind, than later on when you'll have to      -->
+<!-- dive into it all over.                                                -->
+<!--                                                                       -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+
+
+
+
+
+
+
+
+
+
+```{r rxs-template-specification-chunk-PQrDqn, echo=FALSE, results='hide'}
+```
+
+```{r rxs-validation-chunk-94igdm, results='asis'}
+metabefor::heading('Validation results', headingLevel = 1);
+metabefor::rxs_validation(
+  rxsObject,
+  stopOnFailure = FALSE,
+  rxsTemplateSpec = rxsTemplateSpec);
+cat(paste0('- ', rxsObject$validationLog), sep='\n');
+```
+
+```{r rxs-show-extracted-data-chunk-kgRroy}
+if ((!(exists('parsingMultipleRxsFiles'))) || (!parsingMultipleRxsFiles)) {  metabefor::rxs_partial(rxsObject); }
+```
+
+```{r rxs-setup-chunk-RxfuCp, include=FALSE, messages=FALSE}
+### First check for (and perhaps install) metabefor
+if (!(requireNamespace('metabefor', quietly = TRUE))) {
+  install.packages('metabefor', repos='http://cran.rstudio.com');
+}
+
+### Settings
+knitr::opts_chunk$set(echo = FALSE);     ### Suppress R command printing
+knitr::opts_chunk$set(comment = NA);     ### Suppress output prefix
+```
+
+---
+title: "`r paste0('Rxs for \'', uniqueSourceIdentifier, '\' (', metabefor::knittedFileSansExt(), ')')`"
+author: "`r paste0('Extractor: ', extractorIdentifier)`"
+date: "`r format(Sys.time(), '%Y-%m-%d at %H:%M:%S %Z (UTC%z)')`"
+output:
+  html_document:
+    embed-resources: true
+    toc: false
+params:
+  rxsVersion: "0.3.0"
+  rxsRootName: "source"
+  rxsObjectName: "rxsObject"
+editor_options:
+  chunk_output_type: console
+---
+
+
+<!-- Here, the original Rxs template specification is included. ~~~~~~~~~~~-->
+
+```{r rxs-template-specification-chunk-PQrDqn, echo=FALSE}
+
+rxsTemplateSpec <- 
+  list(entities = structure(list(title = c("Metadata", "Tool Title", 
+  "Tool Citation", "Tool Citation Link", "Access Issues", "Access Type", 
+  "Copyright Licence", "Type of Tool", "Format", "Support", "Content", 
+  "Number of Items", "Instructions within the tool"), description = c("this is the parent variable for all items relating to the metadata of the tool", 
+  "If the tool has a title, write it here. If there is no title, check if the tool can be identified with a project or collaborative group name or write an APA style in-text citation to identify a tool that was published with a research paper (e.g., Downs & Black (1998)).", 
+  "Some tools may not be published as part of a paper. For instance, they might be attached to websites as separate documents. Therefore, a citation may not be enough to find the paper. Always include a link that will point to the tool. In the case of paper publications, use the DOI.", 
+  "link of the tool in case there's no citation", "If there are any access issues, report them here as a comment. Otherwise, leave blank.", 
+  "Select whether access is open or requires paying/subscribing", 
+  "Select under which licence it's published; choose one of the examples", 
+  "Does the tool identify itself with any of the following terms?", 
+  "Specify the format of the tool, choose from examples and copy-paste them vebatim", 
+  "Is there any provision of support for authors who want to or are in the process of using the tool? For example, it could be a community mailing list, a Slack or Discord workspace, an online chat function with an adviser embedded within a website.Pick one answer from the examples.", 
+  "parent variable for all items relating to the content of the tool", 
+  "How many main items are in the tool? Some items might have long descriptions with sub-items or general categories with sub-items. Count all items and sub-items in the tool. If in doubt, think about the separate items as they would be in the item bank.", 
+  "Explanation, description or further guides explaining what is meant by individual items. Select one of the options"
+  ), identifier = c("metadata", "toolTitle", "toolCitation", "toolCitationLink", 
+  "accessIssues", "accessType", "copyrightLicence", "typeOfTool", 
+  "format", "support", "content", "numberOfItems", "instructionsWithinTool"
+  ), valueTemplate = c(NA, "string", "string", "string", "string", 
+  "categorical", "string", "string", "string", "string", NA, "integer", 
+  "categorical"), validValues = c(NA, NA, NA, NA, NA, "\"open access\" || \"subscription\"", 
+  NA, NA, NA, NA, NA, NA, "\"No Explanation\" || \"One-Sentence Explanation\" || \"Longer Explanation in the Same Document\""
+  ), default = c(NA_character_, NA_character_, NA_character_, NA_character_, 
+  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
+  NA_character_, NA_character_, NA_character_, NA_character_), 
+      examples = c(NA, NA, NA, NA, NA, NA, "CC; BYCC; BY-NCGNU (the general public licence); Other Specify; Unclear - no licence information can be found", 
+      "Select all that apply: Risk of Bias; Quality Assessment; Critical Appraisal; None; Other (specify)", 
+      "Select as many as applies: \nA text document file with a list of items; \nA text document form that can be filled out on the computer or printed and filled out on paper;\nA spreadsheet file that should be completed on the computer; \nAn online application or software (including a website);\nAn offline application or software; \nOther - specify the format;", 
+      "Yes - some form of support is available - Specify;\nNo - no form of support is available;\nUnclear: Provide a comment", 
+      NA, NA, NA), parent = c(NA, "metadata", "metadata", "metadata", 
+      "metadata", "metadata", "metadata", "metadata", "metadata", 
+      "metadata", NA, "content", "content"), ...9 = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_
+      ), entityRef = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_), fieldRef = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_
+      ), owner = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_), list = c(NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), collapsing = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_
+      ), repeating = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_), recurring = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_
+      ), recursing = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_), identifying = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_
+      )), row.names = c(NA, -13L), class = "data.frame"), valueTemplates = structure(list(
+      identifier = c("numeric", "numeric.multi", "integer", "integer.multi", 
+      "integer.length4.multi", "string", "string.multi", "countrycode", 
+      "categorical", "categorical.multi", "generalPresence", "string.mandatory", 
+      "string.entityRef.mandatory", "string.entityRef.optional", 
+      "string.fieldRef.optional", "matrix.crosstab", "string.identifier"
+      ), description = c("Any valid number", "A vector of valid numbers", 
+      "Any valid whole number", "A vector of integers (i.e. one or more whole numbers)", 
+      "A numeric vector of years, where each year must have exactly 4 digits.", 
+      "A single character value", "A character vector (i.e. one or more strings)", 
+      "A character vector of the ISO 3166-1 alpha-2 country code(s)", 
+      "A string that has to exactly match one of the values specified in the \"values\" column of the Coding sheet", 
+      "A vector of strings where each element has to exactly match one of the values specified in the \"values\" column of the Coding sheet", 
+      "Whether the thing being coded was present or not.", "A single character value that cannot be omitted", 
+      "A string that specifies another entity and which MUST be provided", 
+      "A string that specifies another entity (can be missing, i.e. NA)", 
+      "A string that specifies another field in another entity (can be missing, i.e. NA).", 
+      "A table with frequencies; variable 1 in columns, variable 2 in rows; always work from absence/negative/less (left, top) to presence/positive/more (right, bottom)", 
+      "A single character value that is used as an identifier and so is always mandatory and can only contain a-z, A-Z, 0-9, and underscores, and must start with a letter."
+      ), validValues = c(NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
+      "\"Unknown\" || \"Present\" || \"Absent\"", NA, NA, NA, NA, 
+      NA, NA), default = c("NA", "NA", "NA", "NA", "NA", "NA", 
+      "\"\"", "NA", "NA", "NA", "NA", "\"Enter name here (mandatory)\"", 
+      "\"enter <<entityRef>> here\"", "NA", "NA", "NA", "NA"), 
+      examples = c("2.3 || 643.2", "c(23.43, 62) || 52.2 || c(76, 12.56, 42)", 
+      "30 || 8762", "c(23, 62) || 52 || c(76, 12, 42)", "2001 || c(2001, 2002)", 
+      "\"example\" || \"another example\"", "c(\"first value\", \"second value\")", 
+      "\"NL\" || c(\"NL\", \"BE\")", "<<validValues>>", "<<validValues>>", 
+      "<<validValues>>", "\"example\" || \"another example\"", 
+      "<no example>", "<no example>", "<no example>", "rawTable(10, 5, 15, 10) || rawTable(31, 87, 21, 54, 25, 32, ncol=3)", 
+      "\"example1\" || \"another_identifier_example\" || \"finalExample\""
+      ), validation = c("all(is.na(VALUE)) || (is.numeric(VALUE) && (length(VALUE) == 1))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE))", "all(is.na(VALUE)) || (is.numeric(VALUE) && (VALUE%%1==0) && (length(VALUE) == 1))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE) && all(VALUE%%1==0))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE) && all(nchar(VALUE)==4))", 
+      "all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1)", 
+      "all(is.na(VALUE)) || (is.character(VALUE))", "all(is.na(VALUE)) || (VALUE %in% countryCodeList())", 
+      "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", "all(is.na(VALUE)) || all(VALUE %in% <<validValues>>)", 
+      "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", "all(is.na(VALUE)) && !is.null(VALUE) && (nchar(VALUE) > 0)", 
+      "rxs_findEntity(node, \"<<entityRef>>\", VALUE)", "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findEntity(node, \"<<entityRef>>\", VALUE))", 
+      "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findFieldInEntity(node, \"<<fieldRef>>\", VALUE))", 
+      "all(is.na(VALUE)) || (class(VALUE) == \"matrix\")", "grepl(\"[a-zA-Z][a-zA-Z0-9_]*\", VALUE)"
+      ), error = c("NAME is not numeric, or contains more than one value.", 
+      "NAME is not a numeric vector.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "This string (character value) must be entered.", 
+      "Enter a valid reference to another entity - or remove unused entities.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "The identifier provided as NAME contains invalid characters (i.e. something that is not a-z, A-Z, 0-9, or _) or does not start with a letter."
+      )), row.names = c(NA, -17L), class = "data.frame"), definitions = structure(list(
+      term = "Example Term", definition = "Example definition of the term."), row.names = c(NA, 
+  -1L), class = "data.frame"), instructionSheet = structure(list(
+      heading = character(0), description = character(0)), row.names = integer(0), class = "data.frame"), 
+      textsSheet = structure(list(textIdentifier = c("openingRemarks", 
+      "closingRemarks", "extractionOverview_list_intro", "extractionOverview_compact_intro"
+      ), content = c("Welcome to the R Extraction Script (.rxs.Rmd file) for this source!\n\nYou can now start extracting. If you haven't yet studied the extractor instructions, please do so first. If you're all set, good luck!", 
+      "Well done! You are now done extracting this source. Great job!!!\r\n\r\nNow, please knit the R Extraction Script into an HTML file and carefully check whether you entered everything correctly, since it will cost much less time to correct any errors, now that you still have this source in your mind, than later on when you'll have to dive into it all over.", 
+      "This is an overview of the entities to extract, their titles and descriptions, and other details that will become part of the extraction script template that will be used for the actual extraction.", 
+      "This is an overview of the entities to extract, their titles and descriptions, and other details that will become part of the extraction script template that will be used for the actual extraction."
+      )), row.names = c(NA, -4L), class = "data.frame"), textsList = list(
+          openingRemarks = c(content = "Welcome to the R Extraction Script (.rxs.Rmd file) for this source!\n\nYou can now start extracting. If you haven't yet studied the extractor instructions, please do so first. If you're all set, good luck!"), 
+          closingRemarks = c(content = "Well done! You are now done extracting this source. Great job!!!\r\n\r\nNow, please knit the R Extraction Script into an HTML file and carefully check whether you entered everything correctly, since it will cost much less time to correct any errors, now that you still have this source in your mind, than later on when you'll have to dive into it all over."), 
+          extractionOverview_list_intro = c(content = "This is an overview of the entities to extract, their titles and descriptions, and other details that will become part of the extraction script template that will be used for the actual extraction."), 
+          extractionOverview_compact_intro = c(content = "This is an overview of the entities to extract, their titles and descriptions, and other details that will become part of the extraction script template that will be used for the actual extraction.")), 
+      errorOnFailingValidation = FALSE, rxsRootName = "source", 
+      yamlMetadata = NULL)
+
+```
+
