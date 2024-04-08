@@ -1,0 +1,158 @@
+
+```{r, setup, echo=FALSE, warning=FALSE, message=FALSE}
+
+###-----------------------------------------------------------------------------
+### Some booleans (logical values, set to TRUE or FALSE) to control which
+### actions are executed when the script runs
+###-----------------------------------------------------------------------------
+
+runScreeningChunks <- FALSE;
+
+###-----------------------------------------------------------------------------
+### Packages
+###-----------------------------------------------------------------------------
+
+metabefor::checkPkgs(
+  "here",               ### For easily access to files using 'relative paths'
+  "preregr",            ### For specifying (pre)registrations
+  "synthesisr",         ### For plotting
+  "ggplot2"             ### For plotting
+);
+
+### Potentially update to the development version of some packages
+# ufs::quietGitLabUpdate("r-packages/preregr@dev", quiet = FALSE);
+# ufs::quietGitLabUpdate("r-packages/rock@dev", quiet = FALSE);
+# ufs::quietGitLabUpdate("r-packages/metabefor", quiet = FALSE);
+# ufs::quietRemotesInstall("rmetaverse/synthesisr",
+#                          func = "install_github", quiet = FALSE);
+
+###-----------------------------------------------------------------------------
+### Paths
+###-----------------------------------------------------------------------------
+
+basePath <- here::here();
+scriptPath <- file.path(basePath, "scripts");
+extractionPath <- file.path(basePath, "extraction");
+
+
+
+###-----------------------------------------------------------------------------
+### Settings
+###-----------------------------------------------------------------------------
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  comment = ""
+);
+
+###-----------------------------------------------------------------------------
+### Extraction script Google sheets URL
+###-----------------------------------------------------------------------------
+
+rxsSpec_googleSheetsURL <-
+  paste0("https://docs.google.com/spreadsheets/d/",
+         "1plmKHwTkUQTDAu5pFWDPby1RLUmg-x4wNryYCJdbilg");
+
+```
+
+```{r read-extraction-script-specification, include=FALSE}
+
+###-----------------------------------------------------------------------------
+### Import rxs specifications
+###-----------------------------------------------------------------------------
+
+rxsSpecObject <-
+  metabefor::rxs_fromSpecifications(
+    rxsSpec_googleSheetsURL,
+    outputFile = file.path(
+      extractionPath,
+      "extractionScriptTemplate.rxs.Rmd"
+    )
+  );
+
+```
+
+
+## DESCRIPTIVES
+
+### Bar plots
+
+```{r create-df-from-studies, include=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+### devtools::load_all("B:/git/R/metabefor");
+
+studies <-
+  metabefor::rxs_parseExtractionScripts(
+    path = extractionPath,
+    parallel = TRUE
+  );
+
+df <-
+  metabefor::get_multipleValues(
+    studies
+  );
+
+# if necessary, rows with multiple inputted items will be separated into rows for further analysis
+# separate_column_into_rows <- function(df, column_name, separator = "|") {
+#   df %>%
+#     separate_rows(!!rlang::sym(column_name), sep = separator)
+# }
+
+```
+
+
+```{r plots, echo=FALSE, warning=FALSE, message=FALSE}
+## install.packages("remotes")
+## remotes::install_github("MatthewBJane/ThemePark", force = TRUE)
+library(gridExtra)
+library(tidyverse)
+
+bar_plotter <- function(df, x, title = deparse(substitute(x))){
+    ggplot2::ggplot(df, aes(x = fct_infreq({{ x }}))) +
+    geom_bar(width = 0.5, 
+             fill = "lightpink") +
+    labs(y = title) +
+    coord_flip() +
+    theme_minimal() +
+    theme(axis.title.y = element_blank()
+                           ,axis.text.y = element_text(size = rel(0.5))
+                            ,axis.title.x = element_text(size = rel(0.5)))
+}
+
+access_type <- df %>% bar_plotter(accessType, title = "Access Type")
+
+type_of_tool <- df %>% bar_plotter(typeOfTool, title = "Type of Tool")
+
+copyright <- df %>% bar_plotter(copyrightLicence, title = "Copyright Licenses")
+
+intended_design <- df %>% bar_plotter(intendedDesign, title = "Targeted Design")
+
+#openrepro <- df %>% bar_plotter(openReproScholarship, title = "Open Science Practices")
+
+plot <- grid.arrange(ncol = 1, access_type, type_of_tool, copyright, intended_design)
+
+
+ggsave(plot = plot, filename = "Plot.png")
+
+
+```
+
+
+### Average number of items in the tool
+```{r table_stats, echo=FALSE, warning=FALSE, message=FALSE}
+library(psych)
+library(htmlTable)
+
+htmlTable(describe(df$numberOfItems))
+
+```
+
+### Summary table of tool characteristics
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(htmlTable)
+df %>% select_if(~ !any(is.na(.))) %>% htmlTable(rnames = FALSE)
+```
+
+### Summary
+We included  `r nrow(df)` different tools in our review, with `r length(unique(unlist(df[c("intendedDesign")])))` different targeted designs. There were `r length(unique(unlist(df[c("typeOfTool")])))` types of tools.
+
