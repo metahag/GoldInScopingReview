@@ -1,4 +1,4 @@
-```{r rxs-setup-chunk-jce8MZ, echo=FALSE, results='hide'}
+```{r rxs-setup-chunk-LqrK8v, echo=FALSE, results='hide'}
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -25,7 +25,7 @@ uniqueSourceIdentifier <-
 ### 
 ##############################################################################
     
-    ""
+    "qurid_7t54bsw8"
     
 ##############################################################################
 ########################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -60,7 +60,7 @@ extractorIdentifier <-
 ### 
 ##############################################################################
     
-    ""
+    "Lucija"
     
 ##############################################################################
 ########################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -118,7 +118,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "The Risk Of Bias In Non-randomized Studies – of Interventions (ROBINS-I) assessment tool"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -153,7 +153,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Sterne, J. A., Hernán, M. A., Reeves, B. C., Savović, J., Berkman, N. D., Viswanathan, M., et al. (2016). ROBINS-I: A tool for assessing risk of bias in non-randomised studies of interventions. BMJ, 355, i4919. https://doi.org/10.1136/bmj.i4919"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -193,7 +193,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "https://sites.google.com/site/riskofbiastool/welcome/home/current-version-of-robins-i/robins-i-tool-2016?authuser=0"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -262,7 +262,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "open access"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -304,7 +304,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "CC-BY-NC-ND-4.0"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -344,7 +344,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Risk of Bias"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -396,7 +396,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Fillable Form"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -446,7 +446,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "No Support"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -506,7 +506,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        81
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -555,7 +555,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Separate Guide"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -594,7 +594,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Non-randomized Studies – of Interventions"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -662,7 +662,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Participant Focused"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -709,17 +709,13 @@ currentEntity <- rxsObject;
     ### Write: Open Code
     ### 
     ### Reproducibility of the methods section
-    ### Write: Reproducible MethodsProtocol registration
-    ### Write: Protocol registration
+    ### Write: Reproducible Methods Protocol registration
     ### 
     ### Sample Size Estimator
-    ### Write: Sample Size Estimator
     ### 
     ### Effect Sizes Reported
-    ### Write: Effect Sizes Reported
     ### 
     ### Transparency Statement
-    ### Write: Transparency Statement
     ### 
     ### Reflexivity statement (on author bias)
     ### Write: Reflexivity Statement
@@ -739,7 +735,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Protocol registration ❘ Effect Sizes Reported"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -801,7 +797,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Methodology Assessment ❘ Analysis assessment"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -877,7 +873,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Confounding Acknowledgment ❘ Baseline Measures ❘ Order Effects ❘ Controlled Group ❘ Sample Description ❘ Exclusion Details"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -927,7 +923,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Categorical Type"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -966,7 +962,8 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Y / PY / PN / N / NI ❘ Low / Moderate / Serious / Critical / NI ❘ Favours
+experimental / Favours comparator / Towards null / Away from null / Unpredictable"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1019,7 +1016,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Clear with Examples"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1071,7 +1068,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Categorical Type"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1110,7 +1107,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Low Risk of Bias; Moderate Risk of Bias; Serious Risk of Bias; Critical Risk of Bias; No Information"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1158,7 +1155,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "No Guidance"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1210,7 +1207,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        NA
+        "Guidance with Implications"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1272,10 +1269,10 @@ rxsObject$rxsMetadata <- list(rxsVersion='0.3.0', moduleId=NULL, id=uniqueSource
 
 
 
-```{r rxs-template-specification-chunk-gSyxvu, echo=FALSE, results='hide'}
+```{r rxs-template-specification-chunk-1DkqYm, echo=FALSE, results='hide'}
 ```
 
-```{r rxs-validation-chunk-1sMa2K, results='asis'}
+```{r rxs-validation-chunk-bKZYhg, results='asis'}
 metabefor::heading('Validation results', headingLevel = 1);
 metabefor::rxs_validation(
   rxsObject,
@@ -1284,11 +1281,11 @@ metabefor::rxs_validation(
 cat(paste0('- ', rxsObject$validationLog), sep='\n');
 ```
 
-```{r rxs-show-extracted-data-chunk-ViYpKw}
+```{r rxs-show-extracted-data-chunk-3p4nUZ}
 if ((!(exists('parsingMultipleRxsFiles'))) || (!parsingMultipleRxsFiles)) {  metabefor::rxs_partial(rxsObject); }
 ```
 
-```{r rxs-setup-chunk-jce8MZ, include=FALSE, messages=FALSE}
+```{r rxs-setup-chunk-LqrK8v, include=FALSE, messages=FALSE}
 ### First check for (and perhaps install) metabefor
 if (!(requireNamespace('metabefor', quietly = TRUE))) {
   install.packages('metabefor', repos='http://cran.rstudio.com');
@@ -1318,7 +1315,7 @@ editor_options:
 
 <!-- Here, the original Rxs template specification is included. ~~~~~~~~~~~-->
 
-```{r rxs-template-specification-chunk-gSyxvu, echo=FALSE}
+```{r rxs-template-specification-chunk-1DkqYm, echo=FALSE}
 
 rxsTemplateSpec <- 
   list(entities = structure(list(title = c("Metadata", "Tool Title", 
@@ -1359,7 +1356,7 @@ rxsTemplateSpec <-
   "Select one of the options:\n    No Explanation\n        Write: No Explanation\n\n    One-Sentence Explanation\n       Write: Brief Explanation\n\n    Longer Explanation in the Same Document\n        Write: Detailed Explanation\n\n    Elaborated Instructions Provided in a Separate Document (e.g., a user guide)\n        Write: Separate Guide", 
   "Do not judge it from items, if you cannot find the information, state “Unclear”. Otherwise, state all mentioned designs.", 
   "Select all the options that are mentioned in the tool's items.\n    Intervention suggested (patients instead of participants)\n       Write: Patients Suggested\n\n    Intervention only (intervention specifically mentioned, RCTs etc)\n       Write: Intervention Specific\n\n    Applicable to non-intervention (conceptualises dependent variables)\n       Write: Dependent Variable Conceptualized\n\n    Applicable to non-intervention (conceptualises independent variables)\n       Write: Independent Variable Conceptualized\n\n     Applicable to non-intervention (population / participants, not just patients)\n       Write: Participant Focused\n\n     Applicable to non-intervention (study designs not limited to intervention research)\n       Write: Broad Study Designs\n\n     Applicable to non-intervention (covariates or variables to control for)\n       Write: Covariate Control", 
-  "Select the aspects of open and reproducible research that are explicitly captured in the tool:\n   Open Data\n       Write: Open Data\n\n    Open access to materials used in research (e.g., new software, questionnaires)\n        Write: Open Materials\n\n    Open source software used (e.g., GNU Octave instead of Matlab)\n        Write: Open Software\n\n    Open analysis code\n        Write: Open Code\n\n    Reproducibility of the methods section\n        Write: Reproducible MethodsProtocol registration\n        Write: Protocol registration\n\n    Sample Size Estimator\n       Write: Sample Size Estimator\n\n    Effect Sizes Reported\n       Write: Effect Sizes Reported\n\n    Transparency Statement\n       Write: Transparency Statement\n\n    Reflexivity statement (on author bias)\n        Write: Reflexivity Statement\n\n    Open access publication\n        Write: Open Access\n\n    Preprint Archiving\n        Write: Preprint Archive\n    \n    Participatory Research (participants engaged in designing the study)\n        Write: Participatory Research\n\n    Other\n       Write: Other - explain", 
+  "Select the aspects of open and reproducible research that are explicitly captured in the tool:\n   Open Data\n       Write: Open Data\n\n    Open access to materials used in research (e.g., new software, questionnaires)\n        Write: Open Materials\n\n    Open source software used (e.g., GNU Octave instead of Matlab)\n        Write: Open Software\n\n    Open analysis code\n        Write: Open Code\n\n    Reproducibility of the methods section\n        Write: Reproducible Methods Protocol registration\n\n    Sample Size Estimator\n\n    Effect Sizes Reported\n\n    Transparency Statement\n\n    Reflexivity statement (on author bias)\n        Write: Reflexivity Statement\n\n    Open access publication\n        Write: Open Access\n\n    Preprint Archiving\n        Write: Preprint Archive\n    \n    Participatory Research (participants engaged in designing the study)\n        Write: Participatory Research\n\n    Other\n       Write: Other - explain", 
   "Select the aspects of integrity assessment that are explicitly captured in the tool:\n      Funding Source\n        Write: Funding Source\n\n      Ethics approval \n        Write: Ethics approval\n\n      Authorship statement\n        Write: Authorship statement\n\n      Methodology assessment - to check if the methodology is appropriate for the aims of the study\n        Write: Methodology assessment\n\n      Analytical approach assessment - to check for evidence of inappropriate data handling, missing data or inappropriate analyses \n        Write: Analysis assessment\n\n      Data errors - to check if the reported data or results are clearly implausible (for example, using the statcheck app, http://statcheck.io/) \n        Write: Data errors\n\n    Conflict of interest statement\n        Write: COI Statement", 
   "Select all examples that apply:\n    Construct validity - Operationalisation/rationale of the dependent and independent variables\n        Write: Construct Validity\n\n    Internal validity - Acknowledgment and/or measurement of confounding variables\n        Write: Confounding Acknowledgment\n\n    Internal validity - Inclusion and report of baseline measures\n        Write: Baseline Measures\n\n    Internal validity - Within-subject order effects accounted for\n        Write: Order Effects\n\n    Internal validity - Sufficiently controlled comparison group or condition\n        Write: Controlled Group\n\n    External validity - Detailed description of the sample and limits to generalisability\n        Write: Sample Description\n\n    External validity - Attrition rate reported\n        Write: Attrition Rate\n\n    External validity - The characteristics of participants who were excluded or did not complete the study reported\n        Write: Exclusion Details\n\n    Statistical validity - Conducted data quality assessment or assessment of the quality of participant responses\n        Write: Data Quality\n\n    Statistical validity - Rationale for the appropriateness of statistical analyses provided\n       Write: Statistical RationaleOther - Specify", 
   "Select as many as apply:\n    Binary - Specify which type, e.g., yes/no, low risk/high risk\n        Write: Binary Type\n\n    Categorical - Specify how many categories and what they are, e.g. ‘good’, ‘fair’, ‘poor’ or ‘very poor’\n        Write: Categorical Type\n\n    Points system - Specify the range of points allocated per item as well as the possible total score\n        Write: Points System\n\n    Other - Describe the assessment system\n        Write: Other System  None", 

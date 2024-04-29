@@ -1,4 +1,4 @@
-```{r rxs-setup-chunk-45ck2w, echo=FALSE, results='hide'}
+```{r rxs-setup-chunk-LqrK8v, echo=FALSE, results='hide'}
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -118,7 +118,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        "The Risk Of Bias In Non-randomized Studies – of Interventions (ROBINS-I)"
+      "The Risk Of Bias In Non-randomized Studies – of Interventions (ROBINS-I)"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -148,11 +148,8 @@ currentEntity <- rxsObject;
     ### 
     ### TOOL CITATION
     ### 
-    ### Some tools may not be published as part of a paper. For
-    ### instance, they might be attached to websites as separate
-    ### documents. Therefore, a citation may not be enough to find
-    ### the paper. Always include a link that will point to the tool.
-    ### In the case of paper publications, use the DOI.
+    ### If the paper is associated with a publication, extract the
+    ### citation in APA format together with the DOI.
     ### 
     ##########################################################################
         
@@ -186,7 +183,13 @@ currentEntity <- rxsObject;
     ### 
     ### TOOL CITATION LINK
     ### 
-    ### link of the tool in case there's no citation
+    ### In some cases, even if a paper is published, the tool may not
+    ### be part of that publication and it has to be accessed
+    ### elsewhere, for example, in a separate repository. Therefore,
+    ### a citation may not be enough to find the paper. Always
+    ### include a link that will point to the tool. Here, if the tool
+    ### is part of the paper, add the DOI link. Otherwise, add a link
+    ### that points directly to the tool.
     ### 
     ##########################################################################
         
@@ -259,7 +262,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        "open access"
+       "open access"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -301,7 +304,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        "CC-BY-NC-ND"
+       "CC-BY-NC-ND"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -591,7 +594,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        "Cohort studies | non\-randomized studies"
+        "Cohort studies | non-randomized studies"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -665,15 +668,15 @@ currentEntity <- rxsObject;
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
     ##########################################################################
     ### 
-    ### A string that has to exactly match one of the values
-    ### specified in the "values" column of the Coding sheet
+    ### A single character value
     ### 
-    ### EXAMPLE:
+    ### EXAMPLES:
     ### 
-    ### c(Patients Suggested, Intervention Specific, Dependent Variable Conceptualized, Independent Variable Conceputalized, Participant Focused, Broad Study Designs, Covariate Control)
+    ### "example"
+    ### "another example"
     ### 
     ##########################################################################
-    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (VALUE %in% c("Patients Suggested", "Intervention Specific", "Dependent Variable Conceptualized", "Independent Variable Conceputalized", "Participant Focused", "Broad Study Designs", "Covariate Control")));
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
     currentEntity <- currentEntity$parent;
     ##########################################################################
     ######################################### END: nonInterventionalDesign ###
@@ -870,7 +873,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-        "Confounding Acknowledgment | Baseline Measures | Controlled Group | Exclusion Details"
+         "Confounding Acknowledgment | Baseline Measures | Controlled Group | Exclusion Details"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -926,15 +929,15 @@ currentEntity <- rxsObject;
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
     ##########################################################################
     ### 
-    ### A string that has to exactly match one of the values
-    ### specified in the "values" column of the Coding sheet
+    ### A single character value
     ### 
-    ### EXAMPLE:
+    ### EXAMPLES:
     ### 
-    ### c(Binary Type, Categorical Type, Points System, Other System, None)
+    ### "example"
+    ### "another example"
     ### 
     ##########################################################################
-    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (VALUE %in% c("Binary Type", "Categorical Type", "Points System", "Other System", "None")));
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
     currentEntity <- currentEntity$parent;
     ##########################################################################
     ##################################################### END: ratingStyle ###
@@ -1012,7 +1015,7 @@ currentEntity <- rxsObject;
     ### 
     ##########################################################################
         
-       "Clear with Examples"
+        "Clear with Examples"
         
     ##########################################################################
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
@@ -1070,15 +1073,15 @@ currentEntity <- rxsObject;
     ####################################### VALUE DESCRIPTION AND EXAMPLES ###
     ##########################################################################
     ### 
-    ### A string that has to exactly match one of the values
-    ### specified in the "values" column of the Coding sheet
+    ### A single character value
     ### 
-    ### EXAMPLE:
+    ### EXAMPLES:
     ### 
-    ### c(Binary Type, Categorical Type, Points System, Other System, No)
+    ### "example"
+    ### "another example"
     ### 
     ##########################################################################
-    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (VALUE %in% c("Binary Type", "Categorical Type", "Points System", "Other System", "No")));
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
     currentEntity <- currentEntity$parent;
     ##########################################################################
     ########################################## END: overallAssessmentScore ###
@@ -1265,10 +1268,10 @@ rxsObject$rxsMetadata <- list(rxsVersion='0.3.0', moduleId=NULL, id=uniqueSource
 
 
 
-```{r rxs-template-specification-chunk-SvqLWx, echo=FALSE, results='hide'}
+```{r rxs-template-specification-chunk-1DkqYm, echo=FALSE, results='hide'}
 ```
 
-```{r rxs-validation-chunk-7gG64B, results='asis'}
+```{r rxs-validation-chunk-bKZYhg, results='asis'}
 metabefor::heading('Validation results', headingLevel = 1);
 metabefor::rxs_validation(
   rxsObject,
@@ -1277,11 +1280,11 @@ metabefor::rxs_validation(
 cat(paste0('- ', rxsObject$validationLog), sep='\n');
 ```
 
-```{r rxs-show-extracted-data-chunk-4zvTqf}
+```{r rxs-show-extracted-data-chunk-3p4nUZ}
 if ((!(exists('parsingMultipleRxsFiles'))) || (!parsingMultipleRxsFiles)) {  metabefor::rxs_partial(rxsObject); }
 ```
 
-```{r rxs-setup-chunk-45ck2w, include=FALSE, messages=FALSE}
+```{r rxs-setup-chunk-LqrK8v, include=FALSE, messages=FALSE}
 ### First check for (and perhaps install) metabefor
 if (!(requireNamespace('metabefor', quietly = TRUE))) {
   install.packages('metabefor', repos='http://cran.rstudio.com');
@@ -1311,7 +1314,7 @@ editor_options:
 
 <!-- Here, the original Rxs template specification is included. ~~~~~~~~~~~-->
 
-```{r rxs-template-specification-chunk-SvqLWx, echo=FALSE}
+```{r rxs-template-specification-chunk-1DkqYm, echo=FALSE}
 
 rxsTemplateSpec <- 
   list(entities = structure(list(title = c("Metadata", "Tool Title", 
@@ -1324,8 +1327,9 @@ rxsTemplateSpec <-
   "Rating/Scoring Instruction", "Overall Assessment Result/Score", 
   "Overall Assessment Result/Score Specification", "Practical Use by Item", 
   "Practical Use Overall"), description = c("this is the parent variable for all items relating to the metadata of the tool", 
-  NA, "Some tools may not be published as part of a paper. For instance, they might be attached to websites as separate documents. Therefore, a citation may not be enough to find the paper. Always include a link that will point to the tool. In the case of paper publications, use the DOI.", 
-  "link of the tool in case there's no citation", NA, NA, "Check if the tool has its own licence. If yes, select the licence of the tool here. If the paper was published with an academic article and doesn’t have its own licence, select the licence that the article is published under", 
+  NA, "If the paper is associated with a publication, extract the citation in APA format together with the DOI.", 
+  "In some cases, even if a paper is published, the tool may not be part of that publication and it has to be accessed elsewhere, for example, in a separate repository. Therefore, a citation may not be enough to find the paper. Always include a link that will point to the tool. Here, if the tool is part of the paper, add the DOI link. Otherwise, add a link that points directly to the tool.", 
+  NA, NA, "Check if the tool has its own licence. If yes, select the licence of the tool here. If the paper was published with an academic article and doesn’t have its own licence, select the licence that the article is published under", 
   "Does the tool identify itself with any of the following terms?", 
   "Specify the format of the tool, choose from examples and copy-paste them verbatim", 
   "Is there any provision of support for authors who want to or are in the process of using the tool? For example, it could be a community mailing list, a Slack or Discord workspace, an online chat function with an adviser embedded within a website.  If this is not available in the paper, documentation or the website where the tool is, stop searching.", 
@@ -1370,15 +1374,13 @@ rxsTemplateSpec <-
   "overallAssessmentScoreSpex", "practicalUseByItem", "practiceUseOverall"
   ), valueTemplate = c(NA, "string", "string", "string", "string", 
   "categorical", "string", "string", "string", "string", NA, "integer", 
-  "categorical", "string", "categorical", "string", "string", "string", 
-  "categorical", "string", "categorical", "categorical", "string", 
-  "categorical", "categorical"), validValues = c(NA, NA, NA, NA, 
-  NA, "open access || subscription", NA, NA, NA, NA, NA, NA, "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
-  NA, "Patients Suggested || Intervention Specific || Dependent Variable Conceptualized || Independent Variable Conceputalized || Participant Focused || Broad Study Designs || Covariate Control", 
-  NA, NA, NA, "Binary Type || Categorical Type || Points System || Other System || None", 
-  NA, "Clear with Examples || Clear General || Unclear Instructions || No Instructions", 
-  "Binary Type || Categorical Type || Points System || Other System || No", 
-  NA, "Guidance Provided || No Guidance || Unclear Guidance", "Guidance with Implications || Guidance, No Implications || No Outcome Guidance || Unclear Guidance"
+  "categorical", "string", "string", "string", "string", "string", 
+  "string", "string", "categorical", "string", "string", "categorical", 
+  "categorical"), validValues = c(NA, NA, NA, NA, NA, "open access || subscription", 
+  NA, NA, NA, NA, NA, NA, "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
+  NA, NA, NA, NA, NA, NA, NA, "Clear with Examples || Clear General || Unclear Instructions || No Instructions", 
+  NA, NA, "Guidance Provided || No Guidance || Unclear Guidance", 
+  "Guidance with Implications || Guidance, No Implications || No Outcome Guidance || Unclear Guidance"
   ), default = c(NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
