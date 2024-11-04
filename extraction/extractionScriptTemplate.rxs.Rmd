@@ -1,4 +1,4 @@
-```{r rxs-setup-chunk-jce8MZ, echo=FALSE, results='hide'}
+```{r rxs-setup-chunk-98K0Mh, echo=FALSE, results='hide'}
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -466,6 +466,40 @@ currentEntity <- rxsObject;
     ######################################################### END: support ###
     ##########################################################################
   
+  
+    ##########################################################################
+    ############################################ START: supportDescription ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('supportDescription');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### SUPPORT DESCRIPTION
+    ### 
+    ### Link where you found the support or describe it.
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ############################################## END: supportDescription ###
+    ##########################################################################
+  
       
   ############################################################################
   ############################################################################
@@ -502,7 +536,8 @@ currentEntity <- rxsObject;
     ### sub-items.
     ### 
     ### Count all items and sub-items in the tool which require an
-    ### independent response.
+    ### independent response, including all items relating to design,
+    ### sample characteristics or metadata.
     ### 
     ##########################################################################
         
@@ -1272,10 +1307,10 @@ rxsObject$rxsMetadata <- list(rxsVersion='0.3.0', moduleId=NULL, id=uniqueSource
 
 
 
-```{r rxs-template-specification-chunk-gSyxvu, echo=FALSE, results='hide'}
+```{r rxs-template-specification-chunk-NZaVsT, echo=FALSE, results='hide'}
 ```
 
-```{r rxs-validation-chunk-1sMa2K, results='asis'}
+```{r rxs-validation-chunk-LIMVoC, results='asis'}
 metabefor::heading('Validation results', headingLevel = 1);
 metabefor::rxs_validation(
   rxsObject,
@@ -1284,11 +1319,11 @@ metabefor::rxs_validation(
 cat(paste0('- ', rxsObject$validationLog), sep='\n');
 ```
 
-```{r rxs-show-extracted-data-chunk-ViYpKw}
+```{r rxs-show-extracted-data-chunk-tQPdEK}
 if ((!(exists('parsingMultipleRxsFiles'))) || (!parsingMultipleRxsFiles)) {  metabefor::rxs_partial(rxsObject); }
 ```
 
-```{r rxs-setup-chunk-jce8MZ, include=FALSE, messages=FALSE}
+```{r rxs-setup-chunk-98K0Mh, include=FALSE, messages=FALSE}
 ### First check for (and perhaps install) metabefor
 if (!(requireNamespace('metabefor', quietly = TRUE))) {
   install.packages('metabefor', repos='http://cran.rstudio.com');
@@ -1318,13 +1353,13 @@ editor_options:
 
 <!-- Here, the original Rxs template specification is included. ~~~~~~~~~~~-->
 
-```{r rxs-template-specification-chunk-gSyxvu, echo=FALSE}
+```{r rxs-template-specification-chunk-NZaVsT, echo=FALSE}
 
 rxsTemplateSpec <- 
   list(entities = structure(list(title = c("Metadata", "Tool Title", 
   "Tool Citation", "Tool Citation Link", "Access Issues", "Access Type", 
-  "Copyright Licence", "Type of Tool", "Format", "Support", "Content", 
-  "Number of Items", "Availability of additional instructions", 
+  "Copyright Licence", "Type of Tool", "Format", "Support", "Support description", 
+  "Content", "Number of Items", "Availability of additional instructions", 
   "Intended Design", "Non-Interventional Design", "Open & Reproducible Scholarship", 
   "Integrity Assessment", "Validity Assessment Content - Non-intervention Research Elements", 
   "Rating/Scoring Style", "Rating/Scoring Style Specification", 
@@ -1337,7 +1372,7 @@ rxsTemplateSpec <-
   "Does the tool identify itself with any of the following terms?", 
   "Specify the format of the tool, choose from examples and copy-paste them verbatim", 
   "Is there any provision of support for authors who want to or are in the process of using the tool? For example, it could be a community mailing list, a Slack or Discord workspace, an online chat function with an adviser embedded within a website.  If this is not available in the paper, documentation or the website where the tool is, stop searching.", 
-  "parent variable for all items relating to the content of the tool", 
+  "Link where you found the support or describe it.", "parent variable for all items relating to the content of the tool", 
   "How many items are in the tool? Some items might have long descriptions with sub-items or general categories with sub-items.", 
   "Explanation, elaboration, or further guides explaining what is meant by individual items", 
   "Which study designs are covered by the tool? This should be clearly stated in the tool instructions or within it.", 
@@ -1355,7 +1390,7 @@ rxsTemplateSpec <-
   "Select all that apply: Risk of Bias; Quality Assessment; Critical Appraisal; None; Other* (specify - *Select other and write the wording used to identify the tool if related to risk of bias, quality assessment or critical appraisal.)", 
   "Select as many as applies: \n    A text document file with a list of items\n        Write: Document List\n\n    A text document form that can be filled out on the computer or printed and filled out on paper\n        Write: Fillable Form\n\n    A spreadsheet file that should be completed on the computer\n        Write: Computer Spreadsheet\n\n    An online application or software (including a website)\n        Write: Online Software\n\n    An offline application or software\n       Write: Offline SoftwareOther - specify the format", 
   "Pick one answer from the examples:\n    Yes - some form of support is available - Specify\n       Write: Support Available\n\n    No - no form of support is available\n        Write: No Support\n\n    Unclear: Provide a comment\n        Write: Unclear Support", 
-  NA, "Count all items and sub-items in the tool which require an independent response.", 
+  NA, NA, "Count all items and sub-items in the tool which require an independent response, including all items relating to design, sample characteristics or metadata.", 
   "Select one of the options:\n    No Explanation\n        Write: No Explanation\n\n    One-Sentence Explanation\n       Write: Brief Explanation\n\n    Longer Explanation in the Same Document\n        Write: Detailed Explanation\n\n    Elaborated Instructions Provided in a Separate Document (e.g., a user guide)\n        Write: Separate Guide", 
   "Do not judge it from items, if you cannot find the information, state “Unclear”. Otherwise, state all mentioned designs.", 
   "Select all the options that are mentioned in the tool's items.\n    Intervention suggested (patients instead of participants)\n       Write: Patients Suggested\n\n    Intervention only (intervention specifically mentioned, RCTs etc)\n       Write: Intervention Specific\n\n    Applicable to non-intervention (conceptualises dependent variables)\n       Write: Dependent Variable Conceptualized\n\n    Applicable to non-intervention (conceptualises independent variables)\n       Write: Independent Variable Conceptualized\n\n     Applicable to non-intervention (population / participants, not just patients)\n       Write: Participant Focused\n\n     Applicable to non-intervention (study designs not limited to intervention research)\n       Write: Broad Study Designs\n\n     Applicable to non-intervention (covariates or variables to control for)\n       Write: Covariate Control", 
@@ -1371,17 +1406,18 @@ rxsTemplateSpec <-
   "Select one:\n    Yes, the tool provides guidance for the overall outcome interpretation with implications for the systematic review\n        Write: Guidance with Implications\n\n    Yes, the tool provides guidance for the overall outcome interpretation but no practical implications\n        Write: Guidance, No Implications\n\n    No, the tool does not mention the overall outcome interpretation\n        Write: No Outcome Guidance\n\n    Unclear - guidance is provided but it is not clear\n        Write: Unclear Guidance"
   ), identifier = c("metadata", "toolTitle", "toolCitation", "toolCitationLink", 
   "accessIssues", "accessType", "copyrightLicence", "typeOfTool", 
-  "format", "support", "content", "numberOfItems", "instructionsWithinTool", 
-  "intendedDesign", "nonInterventionalDesign", "openReproScholarship", 
-  "integrityAssessment", "validityAssessmentContent", "ratingStyle", 
-  "ratingStyleSpex", "ratingInstruction", "overallAssessmentScore", 
+  "format", "support", "supportDescription", "content", "numberOfItems", 
+  "instructionsWithinTool", "intendedDesign", "nonInterventionalDesign", 
+  "openReproScholarship", "integrityAssessment", "validityAssessmentContent", 
+  "ratingStyle", "ratingStyleSpex", "ratingInstruction", "overallAssessmentScore", 
   "overallAssessmentScoreSpex", "practicalUseByItem", "practiceUseOverall"
   ), valueTemplate = c(NA, "string", "string", "string", "string", 
-  "categorical", "string", "string", "string", "string", NA, "integer", 
   "categorical", "string", "string", "string", "string", "string", 
-  "string", "string", "categorical", "string", "string", "categorical", 
-  "categorical"), validValues = c(NA, NA, NA, NA, NA, "open access || subscription", 
-  NA, NA, NA, NA, NA, NA, "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
+  NA, "integer", "categorical", "string", "string", "string", "string", 
+  "string", "string", "string", "categorical", "string", "string", 
+  "categorical", "categorical"), validValues = c(NA, NA, NA, NA, 
+  NA, "open access || subscription", NA, NA, NA, NA, NA, NA, NA, 
+  "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
   NA, NA, NA, NA, NA, NA, NA, "Clear with Examples || Clear General || Unclear Instructions || No Instructions", 
   NA, NA, "Guidance Provided || No Guidance || Unclear Guidance", 
   "Guidance with Implications || Guidance, No Implications || No Outcome Guidance || Unclear Guidance"
@@ -1390,52 +1426,57 @@ rxsTemplateSpec <-
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_), examples = c(NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_), parent = c(NA, "metadata", "metadata", 
-  "metadata", "metadata", "metadata", "metadata", "metadata", "metadata", 
-  "metadata", NA, "content", "content", "content", "content", "content", 
-  "content", "content", "content", "content", "content", "content", 
-  "content", "content", "content"), ...10 = c(NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_), entityRef = c(NA_character_, 
+  NA_character_, NA_character_), examples = c(NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_), 
-      fieldRef = c(NA_character_, NA_character_, NA_character_, 
+      parent = c(NA, "metadata", "metadata", "metadata", "metadata", 
+      "metadata", "metadata", "metadata", "metadata", "metadata", 
+      "metadata", NA, "content", "content", "content", "content", 
+      "content", "content", "content", "content", "content", "content", 
+      "content", "content", "content", "content"), ...10 = c(NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_), owner = c(NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_), list = c(NA_character_, 
+      NA_character_), entityRef = c(NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_
-      ), collapsing = c(NA_character_, NA_character_, NA_character_, 
+      ), fieldRef = c(NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_), repeating = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_), owner = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_), list = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), collapsing = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_), repeating = c(NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1448,27 +1489,28 @@ rxsTemplateSpec <-
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_), recursing = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_), recursing = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_), identifying = c(NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_
-      ), identifying = c(NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_)), row.names = c(NA, -25L), class = "data.frame"), 
-      valueTemplates = structure(list(identifier = c("numeric", 
-      "numeric.multi", "integer", "integer.multi", "integer.length4.multi", 
-      "string", "string.multi", "countrycode", "categorical", "categorical.multi", 
-      "generalPresence", "string.mandatory", "string.entityRef.mandatory", 
-      "string.entityRef.optional", "string.fieldRef.optional", 
-      "matrix.crosstab", "string.identifier"), description = c("Any valid number", 
-      "A vector of valid numbers", "Any valid whole number", "A vector of integers (i.e. one or more whole numbers)", 
+      )), row.names = c(NA, -26L), class = "data.frame"), valueTemplates = structure(list(
+      identifier = c("numeric", "numeric.multi", "integer", "integer.multi", 
+      "integer.length4.multi", "string", "string.multi", "countrycode", 
+      "categorical", "categorical.multi", "generalPresence", "string.mandatory", 
+      "string.entityRef.mandatory", "string.entityRef.optional", 
+      "string.fieldRef.optional", "matrix.crosstab", "string.identifier"
+      ), description = c("Any valid number", "A vector of valid numbers", 
+      "Any valid whole number", "A vector of integers (i.e. one or more whole numbers)", 
       "A numeric vector of years, where each year must have exactly 4 digits.", 
       "A single character value", "A character vector (i.e. one or more strings)", 
       "A character vector of the ISO 3166-1 alpha-2 country code(s)", 
@@ -1485,38 +1527,36 @@ rxsTemplateSpec <-
       NA, NA), default = c("NA", "NA", "NA", "NA", "NA", "NA", 
       "\"\"", "NA", "NA", "NA", "NA", "\"Enter name here (mandatory)\"", 
       "\"enter <<entityRef>> here\"", "NA", "NA", "NA", "NA"), 
-          examples = c("2.3 || 643.2", "c(23.43, 62) || 52.2 || c(76, 12.56, 42)", 
-          "30 || 8762", "c(23, 62) || 52 || c(76, 12, 42)", "2001 || c(2001, 2002)", 
-          "\"example\" || \"another example\"", "c(\"first value\", \"second value\")", 
-          "\"NL\" || c(\"NL\", \"BE\")", "<<validValues>>", "<<validValues>>", 
-          "<<validValues>>", "\"example\" || \"another example\"", 
-          "<no example>", "<no example>", "<no example>", "rawTable(10, 5, 15, 10) || rawTable(31, 87, 21, 54, 25, 32, ncol=3)", 
-          "\"example1\" || \"another_identifier_example\" || \"finalExample\""
-          ), validation = c("all(is.na(VALUE)) || (is.numeric(VALUE) && (length(VALUE) == 1))", 
-          "all(is.na(VALUE)) || (is.numeric(VALUE))", "all(is.na(VALUE)) || (is.numeric(VALUE) && (VALUE%%1==0) && (length(VALUE) == 1))", 
-          "all(is.na(VALUE)) || (is.numeric(VALUE) && all(VALUE%%1==0))", 
-          "all(is.na(VALUE)) || (is.numeric(VALUE) && all(nchar(VALUE)==4))", 
-          "all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1)", 
-          "all(is.na(VALUE)) || (is.character(VALUE))", "all(is.na(VALUE)) || (VALUE %in% countryCodeList())", 
-          "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", 
-          "all(is.na(VALUE)) || all(VALUE %in% <<validValues>>)", 
-          "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", 
-          "all(is.na(VALUE)) && !is.null(VALUE) && (nchar(VALUE) > 0)", 
-          "rxs_findEntity(node, \"<<entityRef>>\", VALUE)", "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findEntity(node, \"<<entityRef>>\", VALUE))", 
-          "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findFieldInEntity(node, \"<<fieldRef>>\", VALUE))", 
-          "all(is.na(VALUE)) || (class(VALUE) == \"matrix\")", 
-          "grepl(\"[a-zA-Z][a-zA-Z0-9_]*\", VALUE)"), error = c("NAME is not numeric, or contains more than one value.", 
-          "NAME is not a numeric vector.", "Error about NAME here.", 
-          "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
-          "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
-          "Error about NAME here.", "Error about NAME here.", "This string (character value) must be entered.", 
-          "Enter a valid reference to another entity - or remove unused entities.", 
-          "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
-          "The identifier provided as NAME contains invalid characters (i.e. something that is not a-z, A-Z, 0-9, or _) or does not start with a letter."
-          )), row.names = c(NA, -17L), class = "data.frame"), definitions = structure(list(
-          term = "Example Term", definition = "Example definition of the term."), row.names = c(NA, 
-      -1L), class = "data.frame"), instructionSheet = structure(list(
-          heading = character(0), description = character(0)), row.names = integer(0), class = "data.frame"), 
+      examples = c("2.3 || 643.2", "c(23.43, 62) || 52.2 || c(76, 12.56, 42)", 
+      "30 || 8762", "c(23, 62) || 52 || c(76, 12, 42)", "2001 || c(2001, 2002)", 
+      "\"example\" || \"another example\"", "c(\"first value\", \"second value\")", 
+      "\"NL\" || c(\"NL\", \"BE\")", "<<validValues>>", "<<validValues>>", 
+      "<<validValues>>", "\"example\" || \"another example\"", 
+      "<no example>", "<no example>", "<no example>", "rawTable(10, 5, 15, 10) || rawTable(31, 87, 21, 54, 25, 32, ncol=3)", 
+      "\"example1\" || \"another_identifier_example\" || \"finalExample\""
+      ), validation = c("all(is.na(VALUE)) || (is.numeric(VALUE) && (length(VALUE) == 1))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE))", "all(is.na(VALUE)) || (is.numeric(VALUE) && (VALUE%%1==0) && (length(VALUE) == 1))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE) && all(VALUE%%1==0))", 
+      "all(is.na(VALUE)) || (is.numeric(VALUE) && all(nchar(VALUE)==4))", 
+      "all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1)", 
+      "all(is.na(VALUE)) || (is.character(VALUE))", "all(is.na(VALUE)) || (VALUE %in% countryCodeList())", 
+      "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", "all(is.na(VALUE)) || all(VALUE %in% <<validValues>>)", 
+      "all(is.na(VALUE)) || (VALUE %in% <<validValues>>)", "all(is.na(VALUE)) && !is.null(VALUE) && (nchar(VALUE) > 0)", 
+      "rxs_findEntity(node, \"<<entityRef>>\", VALUE)", "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findEntity(node, \"<<entityRef>>\", VALUE))", 
+      "all(is.na(VALUE)) || (!is.na(VALUE) && rxs_findFieldInEntity(node, \"<<fieldRef>>\", VALUE))", 
+      "all(is.na(VALUE)) || (class(VALUE) == \"matrix\")", "grepl(\"[a-zA-Z][a-zA-Z0-9_]*\", VALUE)"
+      ), error = c("NAME is not numeric, or contains more than one value.", 
+      "NAME is not a numeric vector.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "Error about NAME here.", "Error about NAME here.", "This string (character value) must be entered.", 
+      "Enter a valid reference to another entity - or remove unused entities.", 
+      "Error about NAME here.", "Error about NAME here.", "Error about NAME here.", 
+      "The identifier provided as NAME contains invalid characters (i.e. something that is not a-z, A-Z, 0-9, or _) or does not start with a letter."
+      )), row.names = c(NA, -17L), class = "data.frame"), definitions = structure(list(
+      term = "Example Term", definition = "Example definition of the term."), row.names = c(NA, 
+  -1L), class = "data.frame"), instructionSheet = structure(list(
+      heading = character(0), description = character(0)), row.names = integer(0), class = "data.frame"), 
       textsSheet = structure(list(textIdentifier = c("openingRemarks", 
       "closingRemarks", "extractionOverview_list_intro", "extractionOverview_compact_intro"
       ), content = c("Welcome to the R Extraction Script (.rxs.Rmd file) for this source!\n\nYou can now start extracting. If you haven't yet studied the extractor instructions, please do so first. If you're all set, good luck!", 
