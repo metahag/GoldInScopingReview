@@ -1,4 +1,4 @@
-```{r rxs-setup-chunk-98K0Mh, echo=FALSE, results='hide'}
+```{r rxs-setup-chunk-Aszr1o, echo=FALSE, results='hide'}
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -500,6 +500,46 @@ currentEntity <- rxsObject;
     ############################################## END: supportDescription ###
     ##########################################################################
   
+  
+    ##########################################################################
+    ################################################### START: trainingReq ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('trainingReq');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### TRAINING REQUIRED
+    ### 
+    ### Is there any information about necessary training to use the
+    ### tool?
+    ### 
+    ### Select one of the options:
+    ### Yes - training required
+    ### Yes - training not required
+    ### No information
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ##################################################### END: trainingReq ###
+    ##########################################################################
+  
       
   ############################################################################
   ############################################################################
@@ -747,8 +787,8 @@ currentEntity <- rxsObject;
     ### Write: Reproducible MethodsProtocol registration
     ### Write: Protocol registration
     ### 
-    ### Sample Size Estimator
-    ### Write: Sample Size Estimator
+    ### Sample Size Justification
+    ### Write: Sample Size Justification
     ### 
     ### Effect Sizes Reported
     ### Write: Effect Sizes Reported
@@ -830,6 +870,10 @@ currentEntity <- rxsObject;
     ### clearly implausible (for example, using the statcheck app,
     ### http://statcheck.io/) 
     ### Write: Data errors
+    ### 
+    ### Visualisation errors - to check if the figures adequately
+    ### represent the data or if the figures might be misleading
+    ### Write: Visualisation errors
     ### 
     ### Conflict of interest statement
     ### Write: COI Statement
@@ -930,6 +974,59 @@ currentEntity <- rxsObject;
     currentEntity <- currentEntity$parent;
     ##########################################################################
     ####################################### END: validityAssessmentContent ###
+    ##########################################################################
+  
+  
+    ##########################################################################
+    ############################################# START: scientificInquiry ###
+    ##########################################################################
+    currentEntity <- currentEntity$AddChild('scientificInquiry');
+    currentEntity[['value']] <-
+    ##########################################################################
+    ### 
+    ### SCIENTIFIC INQUIRY
+    ### 
+    ### Does the tool assess whether the paper provides sufficient
+    ### rationale for the project including well-formulated research
+    ### questions?
+    ### 
+    ### Select all that apply:
+    ### 
+    ### Acknowledgement of theoretical background
+    ### Write: Theoretical Background
+    ### 
+    ### Clearly stated aims
+    ### Write: Aims
+    ### 
+    ### Clearly stated research questions
+    ### Write: Research Questions
+    ### 
+    ### Clearly stated hypotheses or researchers’ expectations
+    ### Write: Hypotheses
+    ### 
+    ### Does not assess any of the above
+    ### Write: No
+    ### 
+    ##########################################################################
+        
+        NA
+        
+    ##########################################################################
+    ####################################### VALUE DESCRIPTION AND EXAMPLES ###
+    ##########################################################################
+    ### 
+    ### A single character value
+    ### 
+    ### EXAMPLES:
+    ### 
+    ### "example"
+    ### "another example"
+    ### 
+    ##########################################################################
+    currentEntity[['validation']] <- expression(all(is.na(VALUE)) || (is.character(VALUE) && length(VALUE) == 1));
+    currentEntity <- currentEntity$parent;
+    ##########################################################################
+    ############################################### END: scientificInquiry ###
     ##########################################################################
   
   
@@ -1307,10 +1404,10 @@ rxsObject$rxsMetadata <- list(rxsVersion='0.3.0', moduleId=NULL, id=uniqueSource
 
 
 
-```{r rxs-template-specification-chunk-NZaVsT, echo=FALSE, results='hide'}
+```{r rxs-template-specification-chunk-50qcB6, echo=FALSE, results='hide'}
 ```
 
-```{r rxs-validation-chunk-LIMVoC, results='asis'}
+```{r rxs-validation-chunk-6BnyEP, results='asis'}
 metabefor::heading('Validation results', headingLevel = 1);
 metabefor::rxs_validation(
   rxsObject,
@@ -1319,11 +1416,11 @@ metabefor::rxs_validation(
 cat(paste0('- ', rxsObject$validationLog), sep='\n');
 ```
 
-```{r rxs-show-extracted-data-chunk-tQPdEK}
+```{r rxs-show-extracted-data-chunk-s2GWoC}
 if ((!(exists('parsingMultipleRxsFiles'))) || (!parsingMultipleRxsFiles)) {  metabefor::rxs_partial(rxsObject); }
 ```
 
-```{r rxs-setup-chunk-98K0Mh, include=FALSE, messages=FALSE}
+```{r rxs-setup-chunk-Aszr1o, include=FALSE, messages=FALSE}
 ### First check for (and perhaps install) metabefor
 if (!(requireNamespace('metabefor', quietly = TRUE))) {
   install.packages('metabefor', repos='http://cran.rstudio.com');
@@ -1353,16 +1450,16 @@ editor_options:
 
 <!-- Here, the original Rxs template specification is included. ~~~~~~~~~~~-->
 
-```{r rxs-template-specification-chunk-NZaVsT, echo=FALSE}
+```{r rxs-template-specification-chunk-50qcB6, echo=FALSE}
 
 rxsTemplateSpec <- 
   list(entities = structure(list(title = c("Metadata", "Tool Title", 
   "Tool Citation", "Tool Citation Link", "Access Issues", "Access Type", 
   "Copyright Licence", "Type of Tool", "Format", "Support", "Support description", 
-  "Content", "Number of Items", "Availability of additional instructions", 
+  "Training required", "Content", "Number of Items", "Availability of additional instructions", 
   "Intended Design", "Non-Interventional Design", "Open & Reproducible Scholarship", 
   "Integrity Assessment", "Validity Assessment Content - Non-intervention Research Elements", 
-  "Rating/Scoring Style", "Rating/Scoring Style Specification", 
+  "Scientific Inquiry", "Rating/Scoring Style", "Rating/Scoring Style Specification", 
   "Rating/Scoring Instruction", "Overall Assessment Result/Score", 
   "Overall Assessment Result/Score Specification", "Practical Use by Item", 
   "Practical Use Overall"), description = c("this is the parent variable for all items relating to the metadata of the tool", 
@@ -1372,12 +1469,14 @@ rxsTemplateSpec <-
   "Does the tool identify itself with any of the following terms?", 
   "Specify the format of the tool, choose from examples and copy-paste them verbatim", 
   "Is there any provision of support for authors who want to or are in the process of using the tool? For example, it could be a community mailing list, a Slack or Discord workspace, an online chat function with an adviser embedded within a website.  If this is not available in the paper, documentation or the website where the tool is, stop searching.", 
-  "Link where you found the support or describe it.", "parent variable for all items relating to the content of the tool", 
+  "Link where you found the support or describe it.", "Is there any information about necessary training to use the tool?", 
+  "parent variable for all items relating to the content of the tool", 
   "How many items are in the tool? Some items might have long descriptions with sub-items or general categories with sub-items.", 
   "Explanation, elaboration, or further guides explaining what is meant by individual items", 
   "Which study designs are covered by the tool? This should be clearly stated in the tool instructions or within it.", 
   "Based on the PICOS model and the non-intervention model proposed in NIRO-SR, is the tool suitable for non-intervention research only, or is it applicable to intervention research (whether that’s because it’s specifically built for non-intervention, or because it is general enough to apply)?", 
   NA, "Item based on the paper by Grey et al. (2020)", "Item based on the paper by Schiavone et al. (2023) Does the tool require the researcher to evaluate the following types of validity?", 
+  "Does the tool assess whether the paper provides sufficient rationale for the project including well-formulated research questions?", 
   "What is the assessment system used to understand the risk of bias/quality in individual papers?", 
   NA, "Does the tool clearly explain how to use the assessment system? How are the categories/scores assigned?", 
   "Does the tool provide a way to synthesise individual ratings/scores to arrive at an overall result?", 
@@ -1390,13 +1489,15 @@ rxsTemplateSpec <-
   "Select all that apply: Risk of Bias; Quality Assessment; Critical Appraisal; None; Other* (specify - *Select other and write the wording used to identify the tool if related to risk of bias, quality assessment or critical appraisal.)", 
   "Select as many as applies: \n    A text document file with a list of items\n        Write: Document List\n\n    A text document form that can be filled out on the computer or printed and filled out on paper\n        Write: Fillable Form\n\n    A spreadsheet file that should be completed on the computer\n        Write: Computer Spreadsheet\n\n    An online application or software (including a website)\n        Write: Online Software\n\n    An offline application or software\n       Write: Offline SoftwareOther - specify the format", 
   "Pick one answer from the examples:\n    Yes - some form of support is available - Specify\n       Write: Support Available\n\n    No - no form of support is available\n        Write: No Support\n\n    Unclear: Provide a comment\n        Write: Unclear Support", 
-  NA, NA, "Count all items and sub-items in the tool which require an independent response, including all items relating to design, sample characteristics or metadata.", 
+  NA, "Select one of the options:\nYes - training required\nYes - training not required\nNo information", 
+  NA, "Count all items and sub-items in the tool which require an independent response, including all items relating to design, sample characteristics or metadata.", 
   "Select one of the options:\n    No Explanation\n        Write: No Explanation\n\n    One-Sentence Explanation\n       Write: Brief Explanation\n\n    Longer Explanation in the Same Document\n        Write: Detailed Explanation\n\n    Elaborated Instructions Provided in a Separate Document (e.g., a user guide)\n        Write: Separate Guide", 
   "Do not judge it from items, if you cannot find the information, state “Unclear”. Otherwise, state all mentioned designs.", 
   "Select all the options that are mentioned in the tool's items.\n    Intervention suggested (patients instead of participants)\n       Write: Patients Suggested\n\n    Intervention only (intervention specifically mentioned, RCTs etc)\n       Write: Intervention Specific\n\n    Applicable to non-intervention (conceptualises dependent variables)\n       Write: Dependent Variable Conceptualized\n\n    Applicable to non-intervention (conceptualises independent variables)\n       Write: Independent Variable Conceptualized\n\n     Applicable to non-intervention (population / participants, not just patients)\n       Write: Participant Focused\n\n     Applicable to non-intervention (study designs not limited to intervention research)\n       Write: Broad Study Designs\n\n     Applicable to non-intervention (covariates or variables to control for)\n       Write: Covariate Control", 
-  "Select the aspects of open and reproducible research that are explicitly captured in the tool:\n   Open Data\n       Write: Open Data\n\n    Open access to materials used in research (e.g., new software, questionnaires)\n        Write: Open Materials\n\n    Open source software used (e.g., GNU Octave instead of Matlab)\n        Write: Open Software\n\n    Open analysis code\n        Write: Open Code\n\n    Reproducibility of the methods section\n        Write: Reproducible MethodsProtocol registration\n        Write: Protocol registration\n\n    Sample Size Estimator\n       Write: Sample Size Estimator\n\n    Effect Sizes Reported\n       Write: Effect Sizes Reported\n\n    Transparency Statement\n       Write: Transparency Statement\n\n    Reflexivity statement (on author bias)\n        Write: Reflexivity Statement\n\n    Open access publication\n        Write: Open Access\n\n    Preprint Archiving\n        Write: Preprint Archive\n    \n    Participatory Research (participants engaged in designing the study)\n        Write: Participatory Research\n\n    Other\n       Write: Other - explain", 
-  "Select the aspects of integrity assessment that are explicitly captured in the tool:\n      Funding Source\n        Write: Funding Source\n\n      Ethics approval \n        Write: Ethics approval\n\n      Authorship statement\n        Write: Authorship statement\n\n      Methodology assessment - to check if the methodology is appropriate for the aims of the study\n        Write: Methodology assessment\n\n      Analytical approach assessment - to check for evidence of inappropriate data handling, missing data or inappropriate analyses \n        Write: Analysis assessment\n\n      Data errors - to check if the reported data or results are clearly implausible (for example, using the statcheck app, http://statcheck.io/) \n        Write: Data errors\n\n    Conflict of interest statement\n        Write: COI Statement", 
+  "Select the aspects of open and reproducible research that are explicitly captured in the tool:\n   Open Data\n       Write: Open Data\n\n    Open access to materials used in research (e.g., new software, questionnaires)\n        Write: Open Materials\n\n    Open source software used (e.g., GNU Octave instead of Matlab)\n        Write: Open Software\n\n    Open analysis code\n        Write: Open Code\n\n    Reproducibility of the methods section\n        Write: Reproducible MethodsProtocol registration\n        Write: Protocol registration\n\n    Sample Size Justification\n       Write: Sample Size Justification\n\n    Effect Sizes Reported\n       Write: Effect Sizes Reported\n\n    Transparency Statement\n       Write: Transparency Statement\n\n    Reflexivity statement (on author bias)\n        Write: Reflexivity Statement\n\n    Open access publication\n        Write: Open Access\n\n    Preprint Archiving\n        Write: Preprint Archive\n    \n    Participatory Research (participants engaged in designing the study)\n        Write: Participatory Research\n\n    Other\n       Write: Other - explain", 
+  "Select the aspects of integrity assessment that are explicitly captured in the tool:\n      Funding Source\n        Write: Funding Source\n\n      Ethics approval \n        Write: Ethics approval\n\n      Authorship statement\n        Write: Authorship statement\n\n      Methodology assessment - to check if the methodology is appropriate for the aims of the study\n        Write: Methodology assessment\n\n      Analytical approach assessment - to check for evidence of inappropriate data handling, missing data or inappropriate analyses \n        Write: Analysis assessment\n\n      Data errors - to check if the reported data or results are clearly implausible (for example, using the statcheck app, http://statcheck.io/) \n        Write: Data errors\n\n     Visualisation errors - to check if the figures adequately represent the data or if the figures might be misleading\n        Write: Visualisation errors\n\n    Conflict of interest statement\n        Write: COI Statement", 
   "Select all examples that apply:\n    Construct validity - Operationalisation/rationale of the dependent and independent variables\n        Write: Construct Validity\n\n    Internal validity - Acknowledgment and/or measurement of confounding variables\n        Write: Confounding Acknowledgment\n\n    Internal validity - Inclusion and report of baseline measures\n        Write: Baseline Measures\n\n    Internal validity - Within-subject order effects accounted for\n        Write: Order Effects\n\n    Internal validity - Sufficiently controlled comparison group or condition\n        Write: Controlled Group\n\n    External validity - Detailed description of the sample and limits to generalisability\n        Write: Sample Description\n\n    External validity - Attrition rate reported\n        Write: Attrition Rate\n\n    External validity - The characteristics of participants who were excluded or did not complete the study reported\n        Write: Exclusion Details\n\n    Statistical validity - Conducted data quality assessment or assessment of the quality of participant responses\n        Write: Data Quality\n\n    Statistical validity - Rationale for the appropriateness of statistical analyses provided\n       Write: Statistical RationaleOther - Specify", 
+  "Select all that apply:\n\n     Acknowledgement of theoretical background \n          Write: Theoretical Background\n\n     Clearly stated aims\n          Write: Aims\n\n      Clearly stated research questions \n          Write: Research Questions\n\n      Clearly stated hypotheses or researchers’ expectations \n          Write: Hypotheses\n\n     Does not assess any of the above\n         Write: No", 
   "Select as many as apply:\n    Binary - Specify which type, e.g., yes/no, low risk/high risk\n        Write: Binary Type\n\n    Categorical - Specify how many categories and what they are, e.g. ‘good’, ‘fair’, ‘poor’ or ‘very poor’\n        Write: Categorical Type\n\n    Points system - Specify the range of points allocated per item as well as the possible total score\n        Write: Points System\n\n    Other - Describe the assessment system\n        Write: Other System  None", 
   "Here specify the assessment system used per individual item. E.g., yes/no, low risk/high risk; Specify how many categories and what they are, e.g. ‘good’, ‘fair’, ‘poor’ or ‘very poor’; Specify the range of points allocated per item as well as the possible total score; Describe the assessment system if other", 
   "Select one of the following:\n    Yes - Very clear instructions with specific examples per item (e.g. “high risk” category in an item for studies with no control group or condition)\n        Write: Clear with Examples\n\n    Yes - Clear instructions but apply to the whole tool with no item-specific examples (e.g. mark “No” for all items that do not reflect what was done in the paper”)\n        Write: Clear General\n\n    No - There are instructions for using the assessment system but they are unclear and leave room for interpretation\n        Write: Unclear Instructions\n\n    No - There are no instructions for the assessment system\n        Write: No Instructions", 
@@ -1406,19 +1507,20 @@ rxsTemplateSpec <-
   "Select one:\n    Yes, the tool provides guidance for the overall outcome interpretation with implications for the systematic review\n        Write: Guidance with Implications\n\n    Yes, the tool provides guidance for the overall outcome interpretation but no practical implications\n        Write: Guidance, No Implications\n\n    No, the tool does not mention the overall outcome interpretation\n        Write: No Outcome Guidance\n\n    Unclear - guidance is provided but it is not clear\n        Write: Unclear Guidance"
   ), identifier = c("metadata", "toolTitle", "toolCitation", "toolCitationLink", 
   "accessIssues", "accessType", "copyrightLicence", "typeOfTool", 
-  "format", "support", "supportDescription", "content", "numberOfItems", 
-  "instructionsWithinTool", "intendedDesign", "nonInterventionalDesign", 
-  "openReproScholarship", "integrityAssessment", "validityAssessmentContent", 
-  "ratingStyle", "ratingStyleSpex", "ratingInstruction", "overallAssessmentScore", 
+  "format", "support", "supportDescription", "trainingReq", "content", 
+  "numberOfItems", "instructionsWithinTool", "intendedDesign", 
+  "nonInterventionalDesign", "openReproScholarship", "integrityAssessment", 
+  "validityAssessmentContent", "scientificInquiry", "ratingStyle", 
+  "ratingStyleSpex", "ratingInstruction", "overallAssessmentScore", 
   "overallAssessmentScoreSpex", "practicalUseByItem", "practiceUseOverall"
   ), valueTemplate = c(NA, "string", "string", "string", "string", 
   "categorical", "string", "string", "string", "string", "string", 
-  NA, "integer", "categorical", "string", "string", "string", "string", 
-  "string", "string", "string", "categorical", "string", "string", 
-  "categorical", "categorical"), validValues = c(NA, NA, NA, NA, 
-  NA, "open access || subscription", NA, NA, NA, NA, NA, NA, NA, 
-  "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
-  NA, NA, NA, NA, NA, NA, NA, "Clear with Examples || Clear General || Unclear Instructions || No Instructions", 
+  "string", NA, "integer", "categorical", "string", "string", "string", 
+  "string", "string", "string", "string", "string", "categorical", 
+  "string", "string", "categorical", "categorical"), validValues = c(NA, 
+  NA, NA, NA, NA, "open access || subscription", NA, NA, NA, NA, 
+  NA, NA, NA, NA, "No Explanation || Brief Explanation || Detailed Explanation || Separate Guide", 
+  NA, NA, NA, NA, NA, NA, NA, NA, "Clear with Examples || Clear General || Unclear Instructions || No Instructions", 
   NA, NA, "Guidance Provided || No Guidance || Unclear Guidance", 
   "Guidance with Implications || Guidance, No Implications || No Outcome Guidance || Unclear Guidance"
   ), default = c(NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1426,17 +1528,20 @@ rxsTemplateSpec <-
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_), examples = c(NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
-  NA_character_, NA_character_, NA_character_, NA_character_, NA_character_, 
   NA_character_, NA_character_, NA_character_, NA_character_), 
-      parent = c(NA, "metadata", "metadata", "metadata", "metadata", 
+      examples = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_), parent = c(NA, "metadata", "metadata", "metadata", 
       "metadata", "metadata", "metadata", "metadata", "metadata", 
-      "metadata", NA, "content", "content", "content", "content", 
+      "metadata", "metadata", "metadata", NA, "content", "content", 
       "content", "content", "content", "content", "content", "content", 
-      "content", "content", "content", "content"), ...10 = c(NA_character_, 
+      "content", "content", "content", "content", "content", "content", 
+      "content"), ...10 = c(NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1449,8 +1554,9 @@ rxsTemplateSpec <-
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_
-      ), fieldRef = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_), fieldRef = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1463,7 +1569,8 @@ rxsTemplateSpec <-
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_), list = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), list = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1476,14 +1583,15 @@ rxsTemplateSpec <-
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_), repeating = c(NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), repeating = c(NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_
-      ), recurring = c(NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), recurring = c(NA_character_, 
+      NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
@@ -1496,14 +1604,15 @@ rxsTemplateSpec <-
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_), identifying = c(NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_), identifying = c(NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
       NA_character_, NA_character_, NA_character_, NA_character_, 
-      NA_character_, NA_character_, NA_character_, NA_character_
-      )), row.names = c(NA, -26L), class = "data.frame"), valueTemplates = structure(list(
+      NA_character_, NA_character_, NA_character_, NA_character_, 
+      NA_character_, NA_character_, NA_character_)), row.names = c(NA, 
+  -28L), class = "data.frame"), valueTemplates = structure(list(
       identifier = c("numeric", "numeric.multi", "integer", "integer.multi", 
       "integer.length4.multi", "string", "string.multi", "countrycode", 
       "categorical", "categorical.multi", "generalPresence", "string.mandatory", 
